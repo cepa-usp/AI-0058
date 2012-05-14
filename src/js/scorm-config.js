@@ -52,7 +52,7 @@ $(document).ready(function(){
 
 	swfobject.embedSWF("swf/AI-0107.swf", "ai-container", flashvars.width, flashvars.height, "10.0.0", "expressInstall.swf", flashvars, params, attributes);
 	ai = $(".ai")[0];
-	alert(ai)
+	//alert(ai)
 	
 	
 	
@@ -445,7 +445,7 @@ function getScore (exercise) {
 		document.selects.ex5_select_02.disabled = true;
 		document.selects.ex5_select_03.disabled = true;
 		document.selects.ex5_select_04.disabled = true; 
-	  }else { alert ("Verifique a seleção de cada item")) }
+	  }else { alert ("Preencha todos os itens!") }
 	   	  	  	    
 		break;
 		
