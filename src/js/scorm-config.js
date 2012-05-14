@@ -11,10 +11,6 @@ var pingCount = 0; // Conta a quantidade de pings enviados para o LMS
 var ai; // Referência para a AI (Flash)
 var SCORE_UNIT = 100/6;
 var sorteado;//valor do indice da função
-
-var status = {};
-
-
 var funcao = [
   {
     f_display: "e <SUP> x </SUP>",
@@ -41,17 +37,6 @@ $(document).ready(function(){
   $('#exercicios').tabs({ selected: 0 });
   
   //Carrega SWF
-  /*flashMovie = $('#ai');
-  flashMovie.flash(
-	{
-		swf: 'AI-0107.swf',
-		width: 640,
-		height: 480,
-		play: false,
-		id: "atividade",
-	}
-  );*/
-  
   	var flashvars = {};
 	flashvars.ai = "swf/AI-0107.swf";
 	flashvars.width = "640";
@@ -66,8 +51,11 @@ $(document).ready(function(){
 	attributes.align = "middle";
 
 	swfobject.embedSWF("swf/AI-0107.swf", "ai-container", flashvars.width, flashvars.height, "10.0.0", "expressInstall.swf", flashvars, params, attributes);
+	ai = $(".ai")[0];
+	alert(ai)
 	
-	ai = document.getElementById("atividade");
+	
+	
 	
   //INICIALIZA A ATIVIDADE 
   //applyAndSortFunctions();  
@@ -88,9 +76,7 @@ $(document).ready(function(){
   $('.next-button').button().click(habilitaVisual);
   $('.next-button3').button().click(habilitaVisual);
   $('.next-button4').button().click(habilitaVisual);
-  
-  
-  
+   
   //Configuração do botão inverter do primeiro e segundo exercício
   $('.invert-button').button().click(function(){
 	var value01 = $("input[type=text][id=U-ex1]").val();
@@ -128,9 +114,7 @@ $(document).ready(function(){
 	}
 	});
 
-  $('#button1').button().click(evaluateExercise);
-  $('#button2').button().click(evaluateExercise);
-  $('#button3').button().click(reloadPage);
+  $('#reiniciar').button().click(reloadPage);
   $('#next-button4-2').button().click(MostraTexto);
   $('#next-button4-3').button().click(MostraTexto2);
   
@@ -142,8 +126,33 @@ $(document).ready(function(){
 function reloadPage()
 {
 	document.getElementById("limpa").reset();
+	
+	//reabilita caixas de seleção.
+	document.selects.ex5_select_01.disabled = false;
+	document.selects.ex5_select_02.disabled = false;
+	document.selects.ex5_select_03.disabled = false;
+	document.selects.ex5_select_04.disabled = false;
+    
+	//seta todos os options na primeira posição.
+	document.selects.ex5_select_01[0].selected = true;
+	document.selects.ex5_select_02[0].selected = true;
+	document.selects.ex5_select_03[0].selected = true;
+	document.selects.ex5_select_04[0].selected = true;
+
 	window.location.reload() 
 }
+
+//Verificar selects do Exercício 5 e mostra texto.
+function verificaSelect() {
+   	var valor1 = document.selects.ex5_select_01.value; 
+	var valor2 = document.selects.ex5_select_02.value;
+	var valor3 = document.selects.ex5_select_03.value;
+	var valor4 = document.selects.ex5_select_04.value;
+	if (valor1 == 'menor') {document.getElementById('feedback5-a').style.display="block";}
+	if (valor2 == 'maior') {document.getElementById('feedback5-b').style.display="block";}
+	if (valor3 == 'menor') {document.getElementById('feedback5-c').style.display="block";}	
+	if (valor4 == 'menor') {document.getElementById('feedback5-d').style.display="block";}
+} 
 
 //Mostra bloco do Exercício 4:Frame4-3
 function MostraTexto()
@@ -405,28 +414,44 @@ function getScore (exercise) {
 		}
 		break;
 		
-	  // Avalia a nota do ex1
+	  // Avalia a nota do ex2
 	  case 2:
+	  alert("Escrever código para avaliar exercício 2!")
 	  
 		break;
 		
-	  // Avalia a nota do ex1
+	  // Avalia a nota do ex3
 	  case 3:
+	  alert("Escrever código para avaliar exercício 3!")	  
 	  
 		break;
 		
-	  // Avalia a nota do ex1
+	  // Avalia a nota do ex4
 	  case 4:
+	  alert("Escrever código para avaliar exercício 4!")
 	  
 		break;
 		
-	  // Avalia a nota do ex1
+	  // Avalia a nota do ex5
 	  case 5:
-	  
+	  //verifica se tem algum select não selecionado. 
+	  var valor1 = document.selects.ex5_select_01.value;
+	  var valor2 = document.selects.ex5_select_02.value;
+	  var valor3 = document.selects.ex5_select_03.value;
+	  var valor4 = document.selects.ex5_select_04.value;
+	  if (valor1 != '' && valor2 != '' && valor3 != '' && valor4 != '' ) {
+	    //desabilita os selects após clique no botão 'terminei'
+		document.selects.ex5_select_01.disabled = true;
+		document.selects.ex5_select_02.disabled = true;
+		document.selects.ex5_select_03.disabled = true;
+		document.selects.ex5_select_04.disabled = true; 
+	  }else { alert ("Verifique a seleção de cada item")) }
+	   	  	  	    
 		break;
 		
-	  // Avalia a nota do ex1
+	  // Avalia a nota do ex6
 	  case 6:
+	  alert("Escrever código para avaliar exercício 6!")
 	  
 		break;
 
@@ -458,12 +483,40 @@ function feedback (exercise, score) {
       if (score == 50) {
           $('#message2').html('<p/>Resposta correta!').removeClass().addClass("right-answer");
       } else {
-          $('#message2').html('<p/>Resposta incorreta. O correto seria b(a) = a').removeClass().addClass("wrong-answer");
+          $('#message2').html('<p/>Resposta incorreta. O correto seria ????').removeClass().addClass("wrong-answer");
            
       }
       
       break;
 	  
+    // Feedback da resposta ao exercício 3
+    case 3:
+      //não tem feedback!
+      
+      break;	  
+
+    // Feedback da resposta ao exercício 4
+    case 4:
+	  //não tem feedback!
+	
+      break;
+	  
+    // Feedback da resposta ao exercício 5
+    case 5:
+	  //não tem feedback!
+	      
+      break;
+	  
+    // Feedback da resposta ao exercício 6
+    case 6:
+      if (score == 50) {
+          $('#message6').html('<p/>Resposta correta!').removeClass().addClass("right-answer");
+      } else {
+          $('#message6').html('<p/>Resposta incorreta. O correto seria [ESCREVER]').removeClass().addClass("wrong-answer");
+           
+      }
+      
+      break;
   }
 }
 

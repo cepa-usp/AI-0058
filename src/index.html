@@ -87,7 +87,7 @@
 			<p class="obs"><strong>obs</strong>.: para ver as coordenadas de um ponto qualquer no plano cartesiano acima, posicione o mouse ali e aguarde por alguns instantes.</p>
 		</div>
 
-		<p id="feedback-ex1"></p>
+		<p id="message1"></p>
 
     </div>
     
@@ -107,7 +107,7 @@
 			
 		<p class="terminei visible"><span id="" class="check-button">Terminei</span></p>
 
-		<p id="feedback-ex2"></p>
+		<p id="message2"></p>
     </div>
 	
 	<!-- Exercício 3 -->
@@ -131,7 +131,7 @@
 			<p class="obs"><strong></strong></p>
 		</div>
 
-		<p id="feedback-ex3"></p>
+		<p id="message3"></p>
 
 	</div>
 			
@@ -172,48 +172,55 @@
 		<p class="terminei invisible"><span class="check-button">Terminei</span></p>
 		</div>
 			
-		<p id="feedback-ex4"></p>
+		<p id="message4"></p>
 
 	</div>
 
 	<!-- Exercício 5 -->
+	<form name="selects">
 	<div id="ex5">
 		<p>Na questão anterior nós deduzimos que uma integral é maior ou menor que outra apenas comparando os integrandos (as funções que estamos integrando). Faça isso nas integrais abaixo: sem calculá-las, indique a relação de ordem delas selecionando < ou >. Pressione "Terminei" para concluir.</p>
-		<p class="tabular">a) &#8747;<sub>0</sub><sup>1</sup> &#8730;{1 + x<sup>2</sup>} dx </p>
-		<p class="tabular-2"><select name="ex5_select_01">
-			<option value="menor" selected><</option>
+		<b>a)</b> &#8747;<sub>0</sub><sup>1</sup> &#8730;{1 + x<sup>2</sup>} dx </p>
+		<select name="ex5_select_01" onchange="verificaSelect();">
+			<option value="" selected>Selecione:</option>
+			<option value="menor"><</option>
 			<option value="maior">></option>
 		</select></p>
-		<p class="tabular-3">&#8747;<sub>0</sub><sup>1</sup> x dx</p>
+		&#8747;<sub>0</sub><sup>1</sup> x dx</p>
 		<div class="clear"></div>
-		<p id="feedback-ex5-a" class="invisible">No item a, observe primeiramente que o intervalo de integração é o mesmo (se não fosse, teríamos de calcular as integrais para poder ordená-las). Nesse intervalo, a função &#8730;{1 + x<sup>2</sup>} > x sempre (calcule mentalmente as funções em x = 0 e x = 1 para ter uma percepção disso). Logo, a integral à esquerda é maior que a integral à direita. </p>
-		<p class="tabular">b) &#8747;<sub>0</sub><sup>1</sup> x<sup>2</sup>sen<sup>2</sup>(x) dx </p>
-		<p class="tabular-2"><select name="ex5_select_02">
-			<option value="menor" selected><</option>
+		<p id="feedback5-a" style="display:none">No item a, observe primeiramente que o intervalo de integração é o mesmo (se não fosse, teríamos de calcular as integrais para poder ordená-las). Nesse intervalo, a função &#8730;{1 + x<sup>2</sup>} <b>></b> x sempre (calcule mentalmente as funções em x = 0 e x = 1 para ter uma percepção disso). Logo, a integral à esquerda é maior que a integral à direita. </p>
+		
+		<b>b)</b> &#8747;<sub>0</sub><sup>1</sup> x<sup>2</sup>sen<sup>2</sup>(x) dx </p>
+		<select name="ex5_select_02" onchange="verificaSelect();">
+			<option value="" selected>Selecione:</option>
+			<option value="menor"><</option>
 			<option value="maior">></option>
 		</select></p>
 	 	<p class="tabular-3">&#8747;<sub>0</sub><sup>1</sup> xsen<sup>2</sup>(x) dx</p>
 		<div class="clear"></div>
-		<p id="feedback-ex5-b" class="invisible">No item b, observe primeiramente que o intervalo de integração é o mesmo (se não fosse, teríamos de calcular as integrais para poder ordená-las). Observe também que a função à esquerda (f<sub>e</sub>) é igual à função à direita (f<sub>d</sub>), vezes x: f<sub>e</sub> = x * f<sub>d</sub>. Como 0 <= x <= 1, então f<sub>e</sub> < f<sub>d</sub> em todo o intervalo aberto ]0,1[. E apenas para x = 0 e x = 1 teremos f<sub>e</sub> = f<sub>d</sub>. Logo, a integral à esquerda é menor que aquela à direita.</p>
+		<p id="feedback5-b" style="display:none">No item b, observe primeiramente que o intervalo de integração é o mesmo (se não fosse, teríamos de calcular as integrais para poder ordená-las). Observe também que a função à esquerda (f<sub>e</sub>) é igual à função à direita (f<sub>d</sub>), vezes x: f<sub>e</sub> = x * f<sub>d</sub>. Como 0 <= x <= 1, então f<sub>e</sub> < f<sub>d</sub> em todo o intervalo aberto ]0,1[. E apenas para x = 0 e x = 1 teremos f<sub>e</sub> = f<sub>d</sub>. Logo, a integral à esquerda é menor que aquela à direita.</p>
 	 
-		<p class="tabular">c) &#8747;<sub>1</sub><sup>2</sup> x<sup>2</sup>sen<sup>2</sup>(x) dx</p>
-		<p class="tabular-2"><select name="ex5_select_03">
-			<option value="menor" selected><</option>
+		<b>c)</b> &#8747;<sub>1</sub><sup>2</sup> x<sup>2</sup>sen<sup>2</sup>(x) dx</p>
+		<select name="ex5_select_03" onchange="verificaSelect();">
+			<option value="" selected>Selecione:</option>
+			<option value="menor"><</option>
 			<option value="maior">></option>
 		</select></p>
-	 	<p class="tabular-3">&#8747;<sub>1</sub><sup>2</sup> xsen<sup>2</sup>(x) dx</p>
+	 	&#8747;<sub>1</sub><sup>2</sup> xsen<sup>2</sup>(x) dx</p>
 		<div class="clear"></div>
-		<p id="feedback-ex5-c" class="invisible">No item c, observe primeiramente que o intervalo de integração é o mesmo (se não fosse, teríamos de calcular as integrais para poder ordená-las). Observe também que a função à esquerda (f<sub>e</sub>) é igual à função à direita (f<sub>d</sub>), vezes x: f<sub>e</sub> = x * f<sub>d</sub>. Como x >= 1, então f<sub>e</sub> > f<sub>d</sub> em todo o intervalo aberto ]1,2[. E apenas para x = 1 teremos f<sub>e</sub> = f<sub>d</sub>. Logo, a integral à esquerda é maior que aquela à direita.</p>
+		<p id="feedback5-c" style="display:none">No item c, observe primeiramente que o intervalo de integração é o mesmo (se não fosse, teríamos de calcular as integrais para poder ordená-las). Observe também que a função à esquerda (f<sub>e</sub>) é igual à função à direita (f<sub>d</sub>), vezes x: f<sub>e</sub> = x * f<sub>d</sub>. Como x >= 1, então f<sub>e</sub> > f<sub>d</sub> em todo o intervalo aberto ]1,2[. E apenas para x = 1 teremos f<sub>e</sub> = f<sub>d</sub>. Logo, a integral à esquerda é maior que aquela à direita.</p>
 	
-		<p class="tabular">d) 	&#8747;<sub>1</sub><sup>2</sup> e<sup>{x<sup>2</sup>}</sup> dx</p>
-		<p class="tabular-2"><select name="ex5_select_04">
-			<option value="menor" selected><</option>
+		<b>d)</b> 	&#8747;<sub>1</sub><sup>2</sup> e<sup>{x<sup>2</sup>}</sup> dx</p>
+		<select name="ex5_select_04" onchange="verificaSelect();">
+		    <option value="" selected>Selecione:</option>
+			<option value="menor"><</option>
 			<option value="maior">></option>
 		</select></p>
-	 	<p class="tabular-3">&#8747;<sub>1</sub><sup>2</sup> e<sup>x</sup> dx</p>
+	 	&#8747;<sub>1</sub><sup>2</sup> e<sup>x</sup> dx</p>
 		<div class="clear"></div>
-		<p id="feedback-ex5-d" class="invisible">No item d, observe primeiramente que o intervalo de integração é o mesmo (se não fosse, teríamos de calcular as integrais para poder ordená-las). Observe também que na função à esquerda o expoente (x<sup>2</sup>) é o quadrado daquele da função à direita (x). E como x<sup>2</sup> > x no intervalo de integração, também e<sup>{x<sup>2</sup>}</sup> > e<sup>x</sup>. Apenas em x = 1 teremos as duas funções iguais. Portanto, a integral à esquerda é maior que aquela à direita.</p>
-			<p class="terminei visible"><span class="check-button">Terminei</span></p>
+		<p id="feedback5-d" style="display:none">No item d, observe primeiramente que o intervalo de integração é o mesmo (se não fosse, teríamos de calcular as integrais para poder ordená-las). Observe também que na função à esquerda o expoente (x<sup>2</sup>) é o quadrado daquele da função à direita (x). E como x<sup>2</sup> > x no intervalo de integração, também e<sup>{x<sup>2</sup>}</sup> > e<sup>x</sup>. Apenas em x = 1 teremos as duas funções iguais. Portanto, a integral à esquerda é maior que aquela à direita.</p>
+		<span class="check-button">Terminei</span></p>
+	</form>
 	</div>
 
 	<!-- Exercício 6 -->
@@ -225,8 +232,8 @@
 			<p>Área sob a curva f(x) pela regra do trapézio = <input id="X-ex6" type="text" size="6"/></p>
 		</div>
 	
-		<p class="terminei visible"><span id="" class="check-button">Terminei</span>  <span id="button3">Reiniciar</span></form></p>
-		<p id="feedback-ex6"></p>        
+		<p class="terminei visible"><span id="" class="check-button">Terminei</span>  <span id="reiniciar">Reiniciar</span></form></p>
+		<p id="message6"></p>        
 	</div>
 
     <!-- Créditos -->
