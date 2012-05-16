@@ -1,0 +1,28 @@
+AI-0058
+-------
+
+Objetivos da Atividade Interativa (AI): mostrar ao usuário que a escolha de um sistema de coordenadas é um processo totalmente arbitrário.
+
+Objetivo do usuário: responder corretamente os exercícios.
+
+---
+
+Resolução do exercício 1: o plano cartesiano apresenta um segmento de reta AB, mais um ponto C fora dele. As coordenadas dos "ângulos de visão do segmento AB" são simplesmente os ângulos "a" e "b", em qualquer ordem.
+
+Então, por exemplo, se os ângulos a = 12.53º e b = 153.43º, então a resposta é
+
+C = (12.53, 153.43) ou C = (153.43, 12.53)
+
+---
+
+Resolução do exercício 2: qualquer ponto sobre a mediatriz do segmento AB forma, com os pontos A e B, um triângulo isóceles de base AB, de tal modo que a = b sempre. Logo, a resposta é simplesmente
+
+b(a) = a
+
+---
+
+Observações:
+1) Esta AI usa SCORM para notificar o LMS (moodle) quanto ao aproveitamento do usuário, numa escala de 0 a 100 (inteiros apenas).
+2) A posição do ponto C é escolhida aleatoriamente a cada novo acesso à AI, de sorte que a e b também variam a cada novo acesso.
+3) O usuário pode responder o questionário quantas vezes quiser, mas apenas a primeira tentativa valerá nota.
+4) Esta AI utiliza o Geogebra, que por sua vez requer o plugin do Java instalado. 
