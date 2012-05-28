@@ -41,9 +41,9 @@ function checkCallbacks () {
 	var t2 = new Date().getTime();
 	var ok = false;
 	try {
-			// Sorteia as coordenadas do ponto C
-		  var xcoord = -2 + Math.floor(10 * Math.random());
-		  var ycoord =  0 + Math.floor( 6 * Math.random());
+		// Sorteia as coordenadas do ponto C
+		var xcoord = -2 + Math.floor(10 * Math.random());
+		var ycoord =  0 + Math.floor( 6 * Math.random());
 		document.ggbApplet.setCoords('C', xcoord, ycoord);
 		ok = true;
 		message("ok");
