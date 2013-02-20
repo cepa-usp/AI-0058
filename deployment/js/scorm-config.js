@@ -14,8 +14,21 @@ var debug = true;
 
 // Inicia a AI.
 $(document).ready(function(){       
+	tryinitialize();
+  
+});
 
-  //Deixa a aba "Orientações" ativa no carregamento da atividade
+function tryinitialize(){
+	try{
+		document.ggbApplet.debug("");
+		initialize();
+	}catch(err){
+		setTimeout(tryinitialize, 1000);
+	}
+}
+
+function initialize(){
+	//Deixa a aba "Orientações" ativa no carregamento da atividade
   $('#exercicios').tabs({ selected: 0 });
 
   // Habilita/desabilita a visualização da mediatriz
@@ -33,9 +46,10 @@ $(document).ready(function(){
   $('#button2').button().click(evaluateExercise);
   $('#button3').button().click(reloadPage);
   
-  checkCallbacks();
+  $('#exercicios').show();
   
-});
+  checkCallbacks();
+}
 
 function checkCallbacks () {
 	var t2 = new Date().getTime();
